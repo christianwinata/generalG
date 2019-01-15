@@ -6,15 +6,20 @@ func isEmpty(i interface{}) bool {
 	default:
 		break
 	case string:
-		if i.(string) == "" {
-			return true
+		if i.(string) != "" {
+			return false
+		}
+		break
+	case float64:
+		if i.(float64) != 0 {
+			return false
 		}
 		break
 	case int:
-		if i.(int) == 0 {
-			return true
+		if i.(int) != 0 {
+			return false
 		}
 		break
 	}
-	return false
+	return true
 }
